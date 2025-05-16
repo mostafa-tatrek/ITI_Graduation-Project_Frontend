@@ -1,0 +1,106 @@
+<nav class="navbar navbar-expand-lg nav col-12 p-0 bo z-1">
+  <div
+    class="container-fluid d-flex justify-content-lg-around align-items-center justify-content-around ms-0 me-0"
+  >
+    <!-- Logo -->
+    <div class="col-5 col-lg-3">
+      <a class="navbar-brand" routerLink="home">
+        <img src="assets/Cook & Crave (1).png" class="logo" />
+      </a>
+    </div>
+    <!-- Toggler -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      #navToggeler
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Menu -->
+    <div
+      class="col-lg-5 full-width-navbar col-12 d-flex justify-content-lg-end"
+    >
+      <div class="collapse navbar-collapse col-12 col-lg-12" id="navbarNav">
+        <div
+          class="col-12 col-lg-12 d-flex justify-content-lg-end align-items-center"
+        >
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item _bo">
+              <a
+                class="nav-link navItem"
+                routerLink="/home"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item _bo">
+              <a
+                class="nav-link navItem"
+                routerLink="/about"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+                >About</a
+              >
+            </li>
+            <li class="nav-item _bo">
+              <a
+                class="nav-link navItem"
+                routerLink="/recipe"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+                >Recipes</a
+              >
+            </li>
+            <li class="nav-item _bo">
+              <a
+                class="nav-link navItem"
+                routerLink="/startHere"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+                >Start Here</a
+              >
+            </li>
+            <li class="nav-item _bo">
+              <a
+                *ngIf="isloged == true"
+                style="cursor: pointer"
+                class="nav-link navItem profile"
+                (click)="GoToProfile()"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+                >My Profile</a
+              >
+            </li>
+            <li class="nav-item _bo">
+              <a
+                *ngIf="isloged == false"
+                class="nav-link navItem"
+                routerLink="/Login"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+                >LOGIN</a
+              >
+              <a
+                routerLink="home"
+                *ngIf="isloged == true"
+                style="cursor: pointer"
+                class="nav-link navItem"
+                (click)="logout()"
+                data-bs-toggle="collapse"
+                data-bs-target=".navbar-collapse.show"
+                ><i class="bi bi-door-open fs-4"> </i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

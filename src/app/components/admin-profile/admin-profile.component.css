@@ -1,0 +1,316 @@
+.imgContainer {
+  height: 13vh;
+}
+.custom-ng-select ::ng-deep .ng-select-container {
+  height: 4vh !important; /* ارتفاع مناسب */
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  font-size: 12px;
+}
+::ng-deep .ng-select .ng-select-container .ng-value {
+  padding: 0.8vh 1.2vw;
+}
+
+::ng-deep .custom-ng-select .ng-select-container .ng-placeholder {
+  color: #4d4c4c; /* اختر اللون الذي تريده */
+  font-size: 16px;
+  padding: 0px 1.2vw;
+}
+.custom-ng-select {
+  border: 1px solid #561c24;
+
+  background-color: white;
+}
+a {
+  color: #561c24 !important;
+  font-family: "Dancing Script", cursive;
+  font-weight: 800;
+}
+input:focus {
+  border: 2px #561c24 solid !important;
+}
+input {
+  border: 1px #561c24 solid !important;
+}
+.typing {
+  font-family: "Dancing Script", cursive;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  font-size: 2rem;
+  color: #561c24;
+
+  animation: smoothReveal 2.5s ease forwards, blink 0.8s step-end infinite;
+}
+
+@keyframes smoothReveal {
+  from {
+    width: 0;
+  }
+  to {
+    width: 20ch;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+i {
+  color: #561c24;
+}
+.custom-ng-select ::ng-deep .ng-dropdown-panel {
+  background-color: white; /* لون الخلفية */
+  border: 1px #c7b7a3 solid; /* إطار زي الـ select */
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* شادو خفيف */
+  font-size: 1rem;
+  z-index: 1050; /* عشان ما يستخبّاش تحت حاجة */
+  padding: 0px 0px 0px 2vw;
+}
+.custom-ng-select ::ng-deep .ng-select-container {
+  border-radius: 0.375rem; /* نفس bootstrap rounded */
+  height: 2vh; /* زي select العادية */
+  padding: 0.5rem 5px;
+  font-size: 1rem;
+
+  box-shadow: none;
+}
+::ng-deep
+  .ng-select
+  .ng-select-container
+  .ng-value-container
+  .ng-input
+  > input {
+  padding: 0px 20px !important;
+}
+
+.UserName {
+  font-size: 25px;
+  font-weight: 600;
+  color: #242424;
+}
+.userDataContanier {
+  border-bottom: 1px solid #c7b7a3;
+}
+h1 {
+  font-size: 45px !important;
+}
+button {
+  border: 2px #561c24 solid !important;
+  font-family: "Dancing Script", cursive;
+  font-weight: 600;
+  background-color: #561c24;
+  color: #ece2d5;
+  font-size: 20px;
+}
+h5 {
+  color: #0e0d0d;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+button:hover {
+  background-color: #ece2d5 !important;
+  color: #561c24 !important;
+}
+
+.clicked {
+  background-color: #ece2d5 !important;
+  color: #561c24 !important;
+}
+.imgH {
+  height: 20vh;
+}
+h1 {
+  font-size: 25px;
+  font-weight: 600;
+  color: #561c24;
+  font-family: "Dancing Script", cursive;
+}
+label {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #561c24;
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+.y {
+  padding: 1rem 0px;
+  border: 1px solid #561c24;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+.y:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #561c24;
+}
+.form-control,
+.x {
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus,
+.x:focus {
+  outline: none;
+  box-shadow: none;
+  border-color: #561c24;
+}
+.cat_container {
+  border: 2px solid #561c24;
+  height: 10vh;
+}
+.cat_name {
+  font-size: 20px;
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cat_name {
+    font-size: 20px;
+  }
+  h5 {
+    font-size: 21px;
+    font-weight: 600;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  ::ng-deep .ng-select .ng-select-container .ng-value {
+    padding: 0.8vh 1.8vw;
+  }
+  ::ng-deep .custom-ng-select .ng-select-container .ng-placeholder {
+    color: #4d4c4c; /* اختر اللون الذي تريده */
+    font-size: 16px;
+    padding: 0px 1.8vw;
+  }
+  button {
+    border: 2px #561c24 solid !important;
+    font-family: "Dancing Script", cursive;
+    font-weight: 600;
+    background-color: #561c24;
+    color: #ece2d5;
+    font-size: 20px;
+  }
+  h1 {
+    font-size: 45px !important;
+  }
+  .saved {
+    font-size: 40px;
+    font-weight: 600;
+    color: #561c24;
+    font-family: "Dancing Script", cursive;
+  }
+  .imgContainer {
+    height: 13vh;
+  }
+  .UserName {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .userDataContanier {
+    border-bottom: 1px solid #c7b7a3;
+  }
+}
+@media (min-width: 601px) and (max-width: 768px) {
+  .cat_name {
+    font-size: 20px;
+  }
+  h5 {
+    font-size: 18px;
+    font-weight: 700;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  ::ng-deep .ng-select .ng-select-container .ng-value {
+    padding: 0.8vh 2.3vw;
+  }
+  ::ng-deep .custom-ng-select .ng-select-container .ng-placeholder {
+    color: #4d4c4c; /* اختر اللون الذي تريده */
+    font-size: 16px;
+    padding: 0px 2.3vw;
+  }
+  button {
+    border: 2px #561c24 solid !important;
+    font-family: "Dancing Script", cursive;
+    font-weight: 600;
+    background-color: #561c24;
+    color: #ece2d5;
+    font-size: 15px;
+  }
+  h1 {
+    font-size: 40px !important;
+  }
+  .saved {
+    font-size: 30px;
+    font-weight: 600;
+    color: #561c24;
+    font-family: "Dancing Script", cursive;
+  }
+  .imgContainer {
+    height: 10vh;
+  }
+  .UserName {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .userDataContanier {
+    border-bottom: 1px solid #c7b7a3;
+  }
+}
+
+@media (max-width: 600px) {
+  .cat_name {
+    font-size: 15px;
+  }
+  h5 {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  ::ng-deep .ng-select .ng-select-container .ng-value {
+    padding: 0.8vh 4.3vw;
+  }
+  ::ng-deep .custom-ng-select .ng-select-container .ng-placeholder {
+    color: #4d4c4c; /* اختر اللون الذي تريده */
+    font-size: 12px;
+    padding: 0px 4vw;
+  }
+  .form-control::placeholder,
+  .x::placeholder {
+    font-size: 14px;
+  }
+  button {
+    border: 2px #561c24 solid !important;
+    font-family: "Dancing Script", cursive;
+    font-weight: 600;
+    background-color: #561c24;
+    color: #ece2d5;
+    font-size: 12px;
+  }
+  h1 {
+    font-size: 27px !important;
+  }
+  .saved {
+    font-size: 25px;
+    font-weight: 600;
+    color: #561c24;
+    font-family: "Dancing Script", cursive;
+  }
+  .imgContainer {
+    height: 10vh;
+  }
+  .userDataContanier {
+    border-bottom: 1px solid #c7b7a3;
+  }
+  .UserName {
+    font-size: 15px;
+    font-weight: 600;
+  }
+}

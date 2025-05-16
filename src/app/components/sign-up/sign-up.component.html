@@ -1,0 +1,180 @@
+<div class="mt-5 mb-5 col-12 d-flex justify-content-center">
+  <div class="h-100 col-lg-8 col-md-9 col-11 shadow-lg rounded-4 ps-5 pe-5 c">
+    <div class="row g-0 h-100">
+      <!-- Image Column -->
+      <div
+        class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center object-fit-cover"
+      >
+        <img
+          src="assets/Pan-Cake.jpg"
+          alt="Cup Cake"
+          class="img-fluid rounded-4"
+        />
+      </div>
+
+      <!-- Form Column -->
+      <div class="content col-12 col-lg-6 p-3">
+        <div
+          class="exist rounded-3 p-2 mb-2 text-center"
+          [ngClass]="{
+            'visability-hidden': exist == false
+          }"
+        >
+          This account already exist
+        </div>
+
+        <form [formGroup]="SignUpForm" (ngSubmit)="SignUp()">
+          <h2 class="mb-4 text-center">Create An Account</h2>
+          <!--Username-->
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input
+              formControlName="username"
+              type="text"
+              placeholder="Please enter username"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <div
+              [ngClass]="{
+              'visability-hidden': !(
+                SignUpForm.get('username')?.touched &&
+                SignUpForm.get('username')?.invalid
+              ),
+             
+            }"
+            >
+              <small style="color: red">Username is required</small>
+            </div>
+          </div>
+          <!--Email-->
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label"
+              >Email address</label
+            >
+            <input
+              placeholder="Please enter email"
+              formControlName="email"
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <div
+              class="kkkk"
+              [ngClass]="{
+              'visability-hidden': !(
+                SignUpForm.get('email')?.touched &&
+                SignUpForm.get('email')?.invalid
+              ),}"
+            >
+              <small style="color: red">
+                <p
+                  *ngIf="
+            SignUpForm.get('email')?.errors?.['required']
+          "
+                >
+                  Email is required
+                </p>
+                <p
+                  *ngIf="
+                SignUpForm.get('email')?.errors?.['email']"
+                >
+                  Invalid email format
+                </p>
+              </small>
+            </div>
+          </div>
+          <!--Password-->
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password</label
+            >
+            <input
+              placeholder="Please enter strong password"
+              formControlName="password"
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+            <div
+              class="kkkk"
+              [ngClass]="{
+                'visability-hidden': !(
+                  SignUpForm.get('password')?.touched &&
+                  SignUpForm.get('password')?.invalid
+                ),
+               
+              }"
+            >
+              <!-- 'Password is required' message -->
+              <small style="color: red">
+                <p
+                  *ngIf="
+              SignUpForm.get('password')?.errors?.['required']
+            "
+                >
+                  Password is required
+                </p>
+                <p
+                  *ngIf="
+                  SignUpForm.get('password')?.errors?.['minlength']"
+                >
+                  Password must be at least 6 characters
+                </p>
+              </small>
+            </div>
+          </div>
+          <!--Confirm password-->
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Confirm Password</label
+            >
+            <input
+              placeholder="Please confirm your password"
+              formControlName="confirmPassword"
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+            <div
+              class="kkkk"
+              [ngClass]="{
+                'visability-hidden': !(
+                  SignUpForm.hasError('passwordMismatch') &&
+                  SignUpForm.get('confirmPassword')?.touched
+                ),
+               
+              }"
+            >
+              <!-- 'Password is required' message -->
+              <small style="color: red">Passwords do not match</small>
+            </div>
+          </div>
+          <button
+            *ngIf="Signed == false"
+            type="submit"
+            class="btn sign-btn"
+            [disabled]="SignUpForm.invalid"
+          >
+            Sign up
+          </button>
+          <div *ngIf="Signed == true" class="load">
+            <button class="btn sign-btn" type="button" disabled>
+              <span
+                class="spinner-border spinner-border-sm"
+                aria-hidden="true"
+              ></span>
+              <span role="status">Signing Up...</span>
+            </button>
+          </div>
+        </form>
+        <div class="sign-up mt-4 pt-3 text-center">
+          <p class="d-inline">Already have one?</p>
+          <a class="ms-2" routerLink="/Login">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

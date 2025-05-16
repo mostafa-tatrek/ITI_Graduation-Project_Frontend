@@ -1,0 +1,116 @@
+<div class="mt-4 mb-4 col-12 d-flex justify-content-center">
+  <div class="h-100 col-lg-8 col-md-9 col-11 shadow-lg rounded-4 ps-5 pe-5 c">
+    <div class="row g-0 h-100">
+      <!-- Form Column -->
+      <div class="content col-12 col-lg-6 p-4 p-lg-5">
+        <div
+          class="notfound rounded-3 p-2 mb-2 text-center"
+          [ngClass]="{
+            'visability-hidden': notfound == false
+          }"
+        >
+          This account doesn't exist, Please create new acoount
+        </div>
+        <h2 class="mb-4 text-center">Welcome Back</h2>
+        <form [formGroup]="LoginForm" (ngSubmit)="clicked()">
+          <!--Email-->
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">UserName</label>
+            <input
+              placeholder="Please enter your UserName"
+              formControlName="email"
+              type="email"
+              class="form-control"
+              id="exampleInputEmail1"
+              aria-describedby="emailHelp"
+            />
+            <div
+              [ngClass]="{
+              'visability-hidden': !(
+                LoginForm.get('email')?.touched &&
+                LoginForm.get('email')?.invalid
+              ),
+             
+            }"
+            >
+              <small style="color: red">Username is required</small>
+            </div>
+          </div>
+          <!--Password-->
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"
+              >Password</label
+            >
+            <input
+              placeholder="Please enter password"
+              formControlName="password"
+              type="password"
+              class="form-control"
+              id="exampleInputPassword1"
+            />
+            <div
+              class="kkkk"
+              [ngClass]="{
+                'visability-hidden': !(
+                  LoginForm.get('password')?.touched &&
+                  LoginForm.get('password')?.invalid
+                ),
+               
+              }"
+            >
+              <!-- 'Password is required' message -->
+              <small style="color: red">
+                <p
+                  *ngIf="
+              LoginForm.get('password')?.errors?.['required']
+            "
+                >
+                  Password is required
+                </p>
+                <p
+                  *ngIf="
+                  LoginForm.get('password')?.errors?.['minlength']"
+                >
+                  Password must be at least 6 characters
+                </p>
+              </small>
+            </div>
+          </div>
+          <button
+            *ngIf="islogged == false"
+            type="submit"
+            class="btn sign-btn"
+            [disabled]="LoginForm.invalid"
+          >
+            <span *ngIf="islogged == false">Sign in</span>
+          </button>
+          <div *ngIf="islogged == true" class="load">
+            <button class="btn sign-btn" type="button" disabled>
+              <span
+                class="spinner-border spinner-border-sm"
+                aria-hidden="true"
+              ></span>
+              <span role="status">Signing in...</span>
+            </button>
+          </div>
+        </form>
+        <div class="sign-up mt-4 pt-3 text-center">
+          <p class="d-inline">New Here?</p>
+          <a class="ms-2" routerLink="/SignUp">Sign Up</a>
+        </div>
+      </div>
+
+      <!-- Image Column -->
+      <div
+        class="photo col-lg-6 d-none d-lg-flex align-items-center justify-content-center"
+      >
+        <img
+          src="assets/Cup-Cake.jpg"
+          alt="Cup Cake"
+          class="img-fluid rounded-4"
+          style="height: 520px; width: 480px; object-fit: cover"
+        />
+      </div>
+    </div>
+  </div>
+</div>
