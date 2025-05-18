@@ -16,6 +16,7 @@ import { loginGuardGuard } from './guard/login-guard.guard';
 import { userGuardGuard } from './guard/user-guard.guard';
 import { adminGuard } from './guard/admin.guard';
 import { adminNavigateGuard } from './guard/admin-navigate.guard';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     path: 'Login',
     component: LogInComponent,
+    canActivate: [loginGuardGuard],
+  },
+  {
+    path: 'resetPassword',
+    component: ResetPasswordComponent,
     canActivate: [loginGuardGuard],
   },
   {

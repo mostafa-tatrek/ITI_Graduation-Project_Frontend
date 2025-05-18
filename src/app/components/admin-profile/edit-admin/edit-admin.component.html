@@ -497,12 +497,7 @@
       >
         Update
       </button>
-      <button
-        class="btn sign-btn ms-2"
-        (click)="editIngredientMode = false; editIngredientForm.reset()"
-      >
-        Cancel
-      </button>
+      <button class="btn sign-btn ms-2" (click)="cancelEdit()">Cancel</button>
     </form>
   </div>
 </div>
@@ -544,12 +539,7 @@
       >
         Update
       </button>
-      <button
-        class="btn sign-btn ms-2"
-        (click)="editCategoryMode = false; editCategoryForm.reset()"
-      >
-        Cancel
-      </button>
+      <button class="btn sign-btn ms-2" (click)="cancelEdit()">Cancel</button>
     </form>
   </div>
 </div>

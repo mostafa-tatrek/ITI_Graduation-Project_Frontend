@@ -51,7 +51,10 @@
 </div>
 
 <!--Top rated recipes-->
-<div class="col-12 d-flex justify-content-center">
+<div
+  class="col-12 d-flex justify-content-center"
+  *ngIf="recipeLoading == false"
+>
   <div
     class="col-11 col-lg-9 col-md-9 d-flex justify-content-around align-items-center flex-wrap"
   >
@@ -84,6 +87,17 @@
   </div>
 </div>
 
+<div class="col-12 d-flex justify-content-center mariam" *ngIf="recipeLoading">
+  <div
+    class="col-11 col-lg-9 col-md-9 d-flex justify-content-center align-items-center"
+  >
+    <span>Loading recipes</span>
+    <div class="spinner-grow ms-2 me-2 loading" role="status"></div>
+    <div class="spinner-grow me-2 loading" role="status"></div>
+    <div class="spinner-grow me-2 loading" role="status"></div>
+  </div>
+</div>
+
 <!--button view all recipes-->
 <div class="d-flex justify-content-center mb-4 CviewBTN">
   <button
@@ -93,6 +107,7 @@
     + VIEW ALL RECIPES
   </button>
 </div>
+
 <!--Categories-->
 <div
   class="col-12 justify-content-center align-items-center d-flex mt-5 flex-column"
@@ -111,4 +126,5 @@
     </div>
   </div>
 </div>
+
 <app-footer></app-footer>

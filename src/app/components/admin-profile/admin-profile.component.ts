@@ -381,6 +381,8 @@ export class AdminProfileComponent {
     }
   }
   clickAddRecipe() {
+    this.update.edit = false;
+
     this.showRecipes = false;
     this.showCat = false;
     this.showIngredient = false;
@@ -414,9 +416,12 @@ export class AdminProfileComponent {
     this.AddRecipe = false;
     this.showIngredient = false;
     this.showCat = false;
+    this.update.edit = false;
     this.loadAllRecipes();
   }
   ShowCat() {
+    this.update.edit = false;
+
     this.showIngredient = false;
 
     this.showCat = true;
@@ -427,6 +432,8 @@ export class AdminProfileComponent {
     this.loadAllCategories();
   }
   ShowIngrediengt() {
+    this.update.edit = false;
+
     this.showIngredient = true;
     this.showCat = false;
     this.showRecipes = false;
@@ -567,11 +574,14 @@ export class AdminProfileComponent {
       this.showCat = false;
     } else {
       // Reset to previous state when edit mode is cancelled
-      if (this.update.edit) {
+      if (this.update.editRecipeMode) {
+        this.update.editRecipeMode = false;
         this.showRecipes = true;
       } else if (this.update.editIngredientMode) {
+        this.update.editIngredientMode = false;
         this.showIngredient = true;
       } else if (this.update.editCategoryMode) {
+        this.update.editCategoryMode = false;
         this.showCat = true;
       }
     }

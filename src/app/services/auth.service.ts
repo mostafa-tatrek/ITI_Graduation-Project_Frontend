@@ -13,6 +13,7 @@ export class AuthService {
   userData: IuserData = {} as IuserData;
   private apiUrl = `${environment.baseURL}/api/Account/Login`;
   private apiUrlregister = `${environment.baseURL}/api/Account/Register`;
+  private apiUrlresetPassword = `${environment.baseURL}/api/Account/ResetPassword`;
 
   // Observable logged user status
   private _logged = new BehaviorSubject<boolean>(false);
@@ -90,5 +91,13 @@ export class AuthService {
     } else {
       this.setLoggedIn(false);
     }
+  }
+  resetPassword(credentials: {
+    password: string | null;
+    email: string | null;
+  }) {
+    return this.http.post(this.apiUrlresetPassword, credentials, {
+      responseType: 'text',
+    });
   }
 }

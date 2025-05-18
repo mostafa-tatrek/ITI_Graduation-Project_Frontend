@@ -40,6 +40,9 @@ export class RecipesShowComponent implements OnInit {
         this._apiRecipes
           .GetRecipeByCat(Number(idparam))
           .subscribe((recipes) => {
+            if (recipes.length == 0) {
+              this.emptyCategory = true;
+            }
             this.topRated = recipes;
           });
       }

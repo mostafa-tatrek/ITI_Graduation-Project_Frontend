@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-footer',
@@ -13,7 +14,11 @@ export class FooterComponent {
   userName = '';
   role = '';
   userId: string | null = null;
-  constructor(private _router: Router, private _auth: AuthService) {}
+  constructor(
+    private _router: Router,
+    private _auth: AuthService,
+    private _viewPortScroll: ViewportScroller
+  ) {}
   LoginForm = new FormGroup({
     email: new FormControl('', [Validators.required]),
     password: new FormControl('', [
@@ -22,8 +27,8 @@ export class FooterComponent {
     ]),
   });
   Clicked(arg0: number) {
-    console.log('clicked');
     this._router.navigateByUrl(`recipesShow/${arg0}`);
+    this._viewPortScroll.scrollToPosition([0, 0]);
   }
   sign() {
     const credentials = {

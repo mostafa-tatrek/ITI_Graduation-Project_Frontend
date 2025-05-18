@@ -63,7 +63,7 @@ export class EditAdminComponent {
     name: '',
     categoryID: 0,
   };
-  categoryupdate= {} as ICategory;
+  categoryupdate = {} as ICategory;
   recipeupdate = {} as IRecipeDetails;
 
   // Add new form groups for ingredient and category editing
@@ -94,6 +94,8 @@ export class EditAdminComponent {
   // Add flags for showing edit forms
   editIngredientMode: boolean = false;
   editCategoryMode: boolean = false;
+
+  editRecipeMode: boolean = false;
 
   // Add properties to store current items being edited
   currentIngredient: IIngredient = {} as IIngredient;
@@ -176,86 +178,13 @@ export class EditAdminComponent {
       this.editrecipeForm.controls['image'].setValue(file);
     }
   }
-  loadAllRecipes() {
-    this._apiRecipess.GetAllRecipes().subscribe({
-      next: (response: IRecipeDetails[]) => {
-        this.AllRecipes = response;
-        this.selectedRecipes = [
-          { recipeID: 0, title: 'All Recipes' },
-          ...response.map((item) => ({
-            recipeID: Number(item.recipeID),
-            title: item.title,
-          })),
-        ];
-      },
-      error: (err: any) => {},
-    });
-  }
-  loadAllCategories() {
-    this._apiCategory.GetAllCategoriesV2().subscribe({
-      next: (response) => {
-        this.AllCategories = response;
-        this.selectedCategories = [
-          { CatID: '0', CatName: 'All Categories' },
-          ...response.map((item) => ({
-            CatID: item.id,
-            CatName: item.name,
-          })),
-        ];
-      },
-      error: (err: any) => {},
-    });
-  }
-  loadAllIngredients() {
-    this._apiIngredientService.GetAllIngredients().subscribe({
-      next: (response) => {
-        this.AllIngredients = response;
-        this.selectedIngredients = [
-          { IngredientID: 0, IngredientName: 'All Ingredients' },
-          ...response.map((item) => ({
-            IngredientID: Number(item.ingredientID),
-            IngredientName: item.ingredientName,
-          })),
-        ];
-      },
-      error: (err: any) => {},
-    });
-  }
 
   ngOnInit() {
     this._virePortScrroller.scrollToPosition([0, 0]);
-    this.loadAllRecipes();
-    this._apiRecipess.GetAllRecipes().subscribe((data: any[]) => {
-      this.selectedRecipes = [
-        { recipeID: 0, title: 'All Recipes' },
-        ...data.map((item) => ({
-          recipeID: Number(item.recipeID),
-          title: item.title,
-        })),
-      ];
-    });
-    this.UserId =
-      Number(this._activatedRoute.snapshot.paramMap.get('AdminID')) ?? 0;
-    this._auth.getUserData(this.UserId).subscribe({
-      next: (res) => {
-        this.user = res;
-        if (!this.user.profileImageUrl) {
-          this.user.profileImageUrl =
-            'assets/blank-profile-picture-973460_640.webp';
-        }
-      },
-    });
 
     this._apiIngredientService.GetAllIngredients().subscribe((data: any[]) => {
       this.AllIngredients = data;
 
-      this.selectedIngredients = [
-        { IngredientID: 0, IngredientName: 'All Ingredients' },
-        ...data.map((item) => ({
-          IngredientID: Number(item.ingredientID),
-          IngredientName: item.ingredientName,
-        })),
-      ];
       this.selectedOptions = [
         ...data.map((item) => ({
           IngredientID: Number(item.ingredientID),
@@ -266,13 +195,7 @@ export class EditAdminComponent {
 
     this._apiCategory.GetAllCategories().subscribe((data: any[]) => {
       this.AllCategories = data;
-      this.selectedCategories = [
-        { CatID: '0', CatName: 'All Categories' },
-        ...data.map((item) => ({
-          CatID: item.categoryID,
-          CatName: item.name,
-        })),
-      ];
+
       this._selectedOptions = [
         ...data.map((item) => ({
           CatID: Number(item.categoryID),
@@ -286,7 +209,7 @@ export class EditAdminComponent {
     const selectedCategory = this._selectedOptions.find(
       (cat) => cat.CatID == selectedId
     );
- if (this.recipeupdate.categoryNames.length != 0) {
+    if (this.recipeupdate.categoryNames.length != 0) {
       this.recipeupdate.categoryNames.push(selectedCategory.CatName);
     } else {
       this.editrecipeForm.controls.categories.clearValidators();
@@ -327,6 +250,7 @@ export class EditAdminComponent {
     this.editModeChange.emit(true);
     this.editIngredientMode = false;
     this.editCategoryMode = false;
+    this.editRecipeMode = true;
 
     this._apiRecipess
       .GetRecipeById(recipeid)
@@ -341,25 +265,29 @@ export class EditAdminComponent {
         );
 
         // Find category IDs that match the recipe's category names
-        const categoryIds = recipe.categoryNames.map(catName => {
-          const matchingCategory = this._selectedOptions.find(cat => cat.CatName === catName);
-          return matchingCategory ? matchingCategory.CatID : null;
-        }).filter(id => id !== null);
+        const categoryIds = recipe.categoryNames
+          .map((catName) => {
+            const matchingCategory = this._selectedOptions.find(
+              (cat) => cat.CatName === catName
+            );
+            return matchingCategory ? matchingCategory.CatID : null;
+          })
+          .filter((id) => id !== null);
 
         this.editrecipeForm.patchValue({
-            title: recipe.title,
-            instructions: recipe.instructions,
-            prepTime: String(recipe.prepTime),
-            description: recipe.description,
-            cookingtime: String(recipe.cookingTime),
-            CuisineType: recipe.cuisineType,
-            author: recipe.author.userName,
-            categories: categoryIds,
-            ingredient_name: matchingIngredient?.IngredientID,
-            ingredient_quantity: firstIngredient.quantity,
-            ingredient_unit: firstIngredient.unit,
+          title: recipe.title,
+          instructions: recipe.instructions,
+          prepTime: String(recipe.prepTime),
+          description: recipe.description,
+          cookingtime: String(recipe.cookingTime),
+          CuisineType: recipe.cuisineType,
+          author: recipe.author.userName,
+          categories: categoryIds,
+          ingredient_name: matchingIngredient?.IngredientID,
+          ingredient_quantity: firstIngredient.quantity,
+          ingredient_unit: firstIngredient.unit,
         });
-    });
+      });
   }
   updateRecipe() {
     this.btnAddRecipe = true;
@@ -395,7 +323,6 @@ export class EditAdminComponent {
         },
         error: (err) => {
           this.btnAddRecipe = false;
-          console.error('Error updating recipe:', err);
         },
       });
     }
@@ -407,16 +334,18 @@ export class EditAdminComponent {
     this.editCategoryMode = false;
     this.editModeChange.emit(true);
 
-    this._apiIngredientService.GetIngredientById(ingredientId).subscribe((ingredient) => {
-      this.currentIngredient = ingredient;
-      this.editIngredientForm.patchValue({
-        name: ingredient.ingredientName,
-        calories: String(ingredient.caloriesPer100g),
-        protein: String(ingredient.protein),
-        fats: String(ingredient.fats),
-        carbs: String(ingredient.carbs)
+    this._apiIngredientService
+      .GetIngredientById(ingredientId)
+      .subscribe((ingredient) => {
+        this.currentIngredient = ingredient;
+        this.editIngredientForm.patchValue({
+          name: ingredient.ingredientName,
+          calories: String(ingredient.caloriesPer100g),
+          protein: String(ingredient.protein),
+          fats: String(ingredient.fats),
+          carbs: String(ingredient.carbs),
+        });
       });
-    });
   }
 
   editCategory(categoryId: string) {
@@ -428,7 +357,7 @@ export class EditAdminComponent {
     this._apiCategory.GetCategoryById(categoryId).subscribe((category) => {
       this.currentCategory = this.categoryupdate;
       this.editCategoryForm.patchValue({
-        name: category.name
+        name: category.name,
       });
     });
   }
@@ -438,22 +367,23 @@ export class EditAdminComponent {
       const updatedIngredient: IIngredient = {
         ...this.currentIngredient,
         ingredientName: this.editIngredientForm.controls.name.value ?? '',
-        caloriesPer100g: Number(this.editIngredientForm.controls.calories.value) ?? 0,
+        caloriesPer100g:
+          Number(this.editIngredientForm.controls.calories.value) ?? 0,
         protein: Number(this.editIngredientForm.controls.protein.value) ?? 0,
         fats: Number(this.editIngredientForm.controls.fats.value) ?? 0,
-        carbs: Number(this.editIngredientForm.controls.carbs.value) ?? 0
+        carbs: Number(this.editIngredientForm.controls.carbs.value) ?? 0,
       };
 
       this._apiIngredientService.EditIngredient(updatedIngredient).subscribe({
         next: () => {
           this.editIngredientMode = false;
           this.editModeChange.emit(false);
-          this.loadAllIngredients();
+
           this.editIngredientForm.reset();
         },
         error: (err) => {
           console.error('Error updating ingredient:', err);
-        }
+        },
       });
     }
   }
@@ -462,27 +392,23 @@ export class EditAdminComponent {
     if (this.editCategoryForm.valid) {
       const updatedCategory: ICategory = {
         ...this.currentCategory,
-        name: this.editCategoryForm.controls.name.value ?? ''
+        name: this.editCategoryForm.controls.name.value ?? '',
       };
 
       this._apiCategory.EditCategory(updatedCategory).subscribe({
         next: () => {
           this.editCategoryMode = false;
           this.editModeChange.emit(false);
-          this.loadAllCategories();
+          this.editCategoryMode = false;
           this.editCategoryForm.reset();
         },
-        error: (err) => {
-          console.error('Error updating category:', err);
-        }
+        error: (err) => {},
       });
     }
   }
 
   cancelEdit() {
     this.edit = false;
-    this.editIngredientMode = false;
-    this.editCategoryMode = false;
     this.editModeChange.emit(false);
     this.editrecipeForm.reset();
     this.editIngredientForm.reset();

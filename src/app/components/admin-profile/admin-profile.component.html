@@ -70,7 +70,8 @@
               AddRecipe = false;
               showRecipes = false;
               showIngredient = false;
-              showCat = false
+              showCat = false;
+              update.edit = false
             "
             [ngClass]="{ clicked: AddCategory }"
           >
@@ -85,7 +86,8 @@
               AddRecipe = false;
               showRecipes = false;
               showIngredient = false;
-              showCat = false
+              showCat = false;
+              update.edit = false
             "
             [ngClass]="{ clicked: AddIngredient }"
           >
@@ -277,12 +279,16 @@
                 class="spinner-border spinner-border-sm"
                 aria-hidden="true"
               ></span>
-              <span role="status">Loading...</span>
+              <span role="status">Adding...</span>
             </button>
             <button
               type="button"
               class="btn sign-btn ms-2"
-              (click)="AddIngredient = false; ingredientForm.reset()"
+              (click)="
+                AddIngredient = false;
+                ingredientForm.reset();
+                showIngredient = true
+              "
             >
               Cancel
             </button>
@@ -339,12 +345,14 @@
                 class="spinner-border spinner-border-sm"
                 aria-hidden="true"
               ></span>
-              <span role="status">Loading...</span>
+              <span role="status">Adding...</span>
             </button>
             <button
               type="button"
               class="btn sign-btn ms-2"
-              (click)="AddCategory = false; categoryForm.reset()"
+              (click)="
+                AddCategory = false; categoryForm.reset(); showCat = true
+              "
             >
               Cancel
             </button>
@@ -701,11 +709,13 @@
                 class="spinner-border spinner-border-sm"
                 aria-hidden="true"
               ></span>
-              <span role="status">Loading...</span>
+              <span role="status">Adding...</span>
             </button>
             <button
               class="btn sign-btn ms-2"
-              (click)="AddRecipe = false; recipeForm.reset()"
+              (click)="
+                AddRecipe = false; recipeForm.reset(); showRecipes = true
+              "
             >
               Cancel
             </button>

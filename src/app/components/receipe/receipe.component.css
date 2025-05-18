@@ -8,6 +8,17 @@ h2 {
   font-weight: 800;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+.mariam {
+  min-height: 60vh !important;
+}
+.loading {
+  color: #6d2932 !important;
+}
+span {
+  font-weight: 600;
+  font-size: 20px;
+  color: #6d2932;
+}
 .topP {
   color: #c7b7a3;
   font-size: 20px !important;

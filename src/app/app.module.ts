@@ -21,6 +21,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ProfileDataEditingComponent } from './components/profile-data-editing/profile-data-editing.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditAdminComponent } from './components/admin-profile/edit-admin/edit-admin.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { EditAdminComponent } from './components/admin-profile/edit-admin/edit-a
     AdminProfileComponent,
     ProfileDataEditingComponent,
     EditAdminComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

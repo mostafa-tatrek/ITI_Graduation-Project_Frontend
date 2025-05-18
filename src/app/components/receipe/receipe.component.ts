@@ -20,7 +20,7 @@ export class ReceipeComponent implements OnInit {
   selectedOptions: any[] = [];
   topRated: IRecipeDetails[] = [] as IRecipeDetails[];
   Popularcategories: ICategory[] = [] as ICategory[];
-
+  recipeLoading: boolean = true;
   constructor(
     private _apiRecipe: APIRecipeService,
     private _router: Router,
@@ -28,6 +28,7 @@ export class ReceipeComponent implements OnInit {
     private _viewPortScroller: ViewportScroller
   ) {}
   ngOnInit() {
+    this.recipeLoading = true;
     this._viewPortScroller.scrollToPosition([0, 0]);
     this.loadAllRecipes();
 
@@ -68,6 +69,7 @@ export class ReceipeComponent implements OnInit {
     this._apiRecipe.GetTopRatedRecipes().subscribe({
       next: (response) => {
         this.topRated = response;
+        this.recipeLoading = false;
       },
       error: (err) => {},
     });
