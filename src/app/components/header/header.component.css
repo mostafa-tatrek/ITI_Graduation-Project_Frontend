@@ -1,8 +1,11 @@
 .nav {
   background-color: #e8d8c4;
   height: 18vh;
-  position: relative; /* 👈 لازم */
-  z-index: 10000; /* 👈 أعلى من أي card */
+  position: fixed; /* ثابت فوق */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 11000; /* أعلى من الكل */
 }
 .logo {
   height: 15vh;
@@ -24,13 +27,13 @@
 @media (max-width: 991px) {
   .full-width-navbar {
     position: fixed !important;
-    top: 18vh; /* نفس ارتفاع الهيدر */
-    bottom: calc(100vh - 18vh);
+    top: 18vh; /* تحت الهيدر */
     left: 0;
     width: 100vw;
+    /* حذفنا height */
     background-color: #e8d8c4;
-    z-index: 10000 !important;
-    overflow-y: auto;
+    z-index: 10999 !important;
+    overflow-y: visible; /* أو خليها حسب المحتوى */
     padding: 1rem 2rem;
   }
 
