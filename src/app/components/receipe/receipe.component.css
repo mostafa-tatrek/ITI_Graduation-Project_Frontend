@@ -198,7 +198,7 @@ li {
     display: flex;
     align-items: center; /* يركّز المحتوى عمودياً في النص */
     height: 6vh; /* ارتفاع الحاوية */
-    padding: 0px 1vw;
+    padding: 0px 0.5vw;
     font-size: 1rem;
     border-radius: 0.375rem;
     box-shadow: none;
@@ -231,7 +231,7 @@ li {
   }
   .search {
     height: 6vh;
-    margin-bottom: 6.5vh;
+    margin-bottom: -6.5vh;
     background-color: #f1eeeb;
   }
   input::placeholder {
