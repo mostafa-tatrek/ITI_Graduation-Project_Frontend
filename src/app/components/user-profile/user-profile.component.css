@@ -1,9 +1,7 @@
 .imgContainer {
   height: 13vh;
 }
-.main {
-  margin-top: 18vh;
-}
+
 .typing {
   font-family: "Dancing Script", cursive;
   white-space: nowrap;
