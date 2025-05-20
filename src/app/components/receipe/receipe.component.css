@@ -91,7 +91,7 @@ li {
   align-items: center;
   border-radius: 0.375rem; /* نفس bootstrap rounded */
   height: 10vh; /* زي select العادية */
-
+  padding: 1rem 0px;
   font-size: 1rem;
   box-shadow: none;
 }
