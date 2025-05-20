@@ -23,7 +23,7 @@
 }
 @media (max-width: 991px) {
   .full-width-navbar {
-    position: fixed !important;
+    position: sticky !important;
     top: 18vh; /* نفس ارتفاع الهيدر */
     left: 0;
     width: 100vw;
