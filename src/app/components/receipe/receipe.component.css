@@ -189,17 +189,17 @@ li {
   }
 }
 @media (max-width: 600px) {
+  ::ng-deep .ng-select .ng-select-container .ng-value {
+    padding: 0.8vh 4.3vw;
+  }
   ::ng-deep .custom-ng-select .ng-select-container .ng-placeholder {
     color: #4d4c4c; /* اختر اللون الذي تريده */
     font-size: 15px;
-    padding: auto;
+    padding: 0px 4vw;
   }
-  .custom-ng-select ::ng-deep .ng-select-container {
-    border-radius: 0.375rem; /* نفس bootstrap rounded */
-    height: 6vh; /* زي select العادية */
-    padding: 0.2rem 0.8rem;
-    font-size: 1rem;
-    box-shadow: none;
+  .form-control::placeholder,
+  .x::placeholder {
+    font-size: 14px;
   }
   .catTitle {
     color: #6d2932;
