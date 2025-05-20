@@ -281,7 +281,7 @@ label {
   ::ng-deep .custom-ng-select .ng-select-container .ng-placeholder {
     color: #4d4c4c; /* اختر اللون الذي تريده */
     font-size: 12px;
-    padding: 0px 4vw;
+    padding: 0px 10vw;
   }
   .form-control::placeholder,
   .x::placeholder {
