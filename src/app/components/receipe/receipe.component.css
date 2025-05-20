@@ -194,8 +194,8 @@ li {
   }
   ::ng-deep .custom-ng-select .ng-select-container .ng-placeholder {
     color: #4d4c4c; /* اختر اللون الذي تريده */
-    font-size: 15px;
-    padding: 0px 4vw;
+    font-size: 18px;
+    padding: auto;
   }
   .form-control::placeholder,
   .x::placeholder {
