@@ -126,7 +126,11 @@ li {
   height: 100%;
 }
 
-/* ↓↓↓ input جوا ng-select يبقى مظبوط ↓↓↓ */
+::ng-deep .ng-select .ng-select-container .ng-value-container .ng-input {
+  display: flex;
+  align-items: center;
+}
+
 ::ng-deep
   .ng-select
   .ng-select-container
@@ -136,6 +140,7 @@ li {
   padding: 0 !important;
   margin: 0 !important;
   height: 100%;
+  font-size: 16px; /* اختياري */
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   ::ng-deep .custom-ng-select .ng-select-container .ng-placeholder {
