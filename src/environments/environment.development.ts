@@ -1,3 +1,3 @@
 export const environment = {
-  baseURL: 'https://localhost:7157',
+  baseURL: 'https://cook-recipe.runasp.net/',
 };
