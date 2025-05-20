@@ -332,6 +332,7 @@ export class AdminProfileComponent {
     localStorage.removeItem('token');
     localStorage.removeItem('role');
     localStorage.removeItem('admin');
+    localStorage.removeItem('userId');
     this._auth.setLoggedIn(false);
     this._router.navigateByUrl('home');
   }
