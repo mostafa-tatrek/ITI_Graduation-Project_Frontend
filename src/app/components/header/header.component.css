@@ -1,10 +1,7 @@
 .nav {
   background-color: #e8d8c4;
   height: 18vh;
-  position: fixed; /* ✅ صح */
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: relative; /* بدل fixed */
   z-index: 10000;
 }
 .logo {
@@ -25,15 +22,15 @@
   font-family: "Dancing Script", cursive;
 }
 @media (max-width: 991px) {
-  .navbar-collapse.full-width-navbar {
+  .navbar-collapse.full-width-navbar.show {
     position: fixed !important;
-    top: 18vh !important;
+    top: 18vh !important; /* ارتفاع الهيدر */
     left: 0 !important;
     width: 100vw !important;
     background-color: #e8d8c4 !important;
     z-index: 10999 !important;
     overflow-y: auto !important;
-    max-height: calc(100vh - 18vh) !important; /* عشان متعديش الهيدر */
+    max-height: calc(100vh - 18vh) !important;
     padding: 1rem 2rem !important;
   }
   .navbar-nav {
