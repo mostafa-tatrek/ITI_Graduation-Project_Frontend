@@ -16,7 +16,7 @@
   font-weight: 800;
   color: #561c24;
 }
-.profile{
+.profile {
   font-family: "Dancing Script", cursive;
 }
 @media (max-width: 991px) {
@@ -30,6 +30,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 1000;
   }
 
   .nav-item {
