@@ -3,9 +3,7 @@
   background-image: url(../../../assets/pexels-pervane-mustafa27-716709928-18286678.jpg);
   background-repeat: no-repeat;
   background-size: 100%;
-
   background-position: center;
-
   text-align: center;
 }
 
@@ -89,7 +87,12 @@ div of all cards .cardsedit {
 .card {
   background-color: #fcf9f5;
 }
-
+@media (max-width: 991px) {
+  .about {
+    height: auto; /* تخلي الطول يتناسب مع المحتوى أو ترفع ارتفاع مناسب */
+    padding-top: 56.25%; /* لو استخدمت طريقة padding-top للحفاظ على نسبة */
+  }
+}
 @media (max-width: 600px) {
   .headpara2 {
     text-align: start;
