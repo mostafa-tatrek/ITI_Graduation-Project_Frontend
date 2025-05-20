@@ -23,8 +23,9 @@
 }
 @media (max-width: 991px) {
   .full-width-navbar {
-    position: sticky !important;
+    position: fixed !important;
     top: 18vh; /* نفس ارتفاع الهيدر */
+    bottom: calc(100vh - 18vh);
     left: 0;
     width: 100vw;
     background-color: #e8d8c4;
