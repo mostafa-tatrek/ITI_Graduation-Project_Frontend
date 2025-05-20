@@ -1,51 +1,87 @@
 .nav {
   background-color: #e8d8c4;
   height: 18vh;
+  position: relative; /* عشان يبقى فوق العناصر */
+  z-index: 1100; /* أعلى من معظم العناصر */
 }
+
 .logo {
   height: 15vh;
+  object-fit: contain; /* عشان الصورة متتقطعش */
 }
+
 .color {
   color: #561c24;
 }
+
 .navItem {
   font-weight: 800;
   color: #6d2932;
+  transition: color 0.3s ease;
 }
-._bo :hover {
+
+._bo:hover {
   font-weight: 800;
   color: #561c24;
 }
+
 .profile {
   font-family: "Dancing Script", cursive;
 }
+
+/* تعديل للعرض تحت 992px (الموبايل والتابلت) */
 @media (max-width: 991px) {
   .full-width-navbar {
     width: 100% !important;
     padding: 0.5rem 2rem;
     background-color: #e8d8c4;
   }
+
   .navbar-nav {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0;
   }
 
   .nav-item {
     width: 100%;
     margin: 0.5rem 0;
-    border-bottom: #561c24 1px solid;
+    border-bottom: 1px solid #561c24;
+    text-align: center; /* خلي النص في النص */
+  }
+
+  .nav-link {
+    padding: 0.5rem 1rem;
   }
 
   .navbar-toggler {
     margin-right: 10px;
+    border: none;
+    outline: none;
+    z-index: 1200; /* خلي التوجلر فوق كل حاجة */
   }
 }
+
+/* نضيف إزالة المارجن والبادنغ الافتراضية من الكونتينر */
 .container-fluid {
-  margin: 0px !important;
-  padding: 0px !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
+
+/* خط تحت للعناصر */
 .bo {
-  border-bottom: #561c24 1px solid;
+  border-bottom: 1px solid #561c24;
+}
+
+/* لما القائمة مفتوحة (show) نخليها فوق */
+.collapse.show {
+  position: absolute;
+  top: 18vh; /* تحت الـ navbar */
+  left: 0;
+  width: 100%;
+  background-color: #e8d8c4;
+  z-index: 1099;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
