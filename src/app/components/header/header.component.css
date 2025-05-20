@@ -25,7 +25,6 @@
     top: 18vh;
     left: 0;
     width: 100vw;
-    height: calc(100vh - 18vh);
     background-color: #e8d8c4;
     z-index: 9999 !important; /* أعلى من كروت الريسيبي */
     overflow-y: auto;
