@@ -1,127 +1,129 @@
 <app-header *ngIf="role != 'MANAGER'"></app-header>
-<div class="c text-center">
-  <h1 class="text-center pt-5 animated-text">Profile Data Editing</h1>
+<div [ngClass]="{ main: role != 'MANAGER' }">
+  <div class="c text-center">
+    <h1 class="text-center pt-5 animated-text">Profile Data Editing</h1>
 
-  <div class="col-12 d-flex justify-content-center mt-4 mb-4">
-    <div
-      class="col-10 col-lg-8 col-md-8 d-flex flex-column flex-lg-row flex-md-row justify-content-center align-items-center"
-    >
-      <!--Right Side-->
-      <div class="col-lg-4 col-md-5">
-        <div
-          class="rounded-4 imgContainer col-lg-12 col-md-10 col-12 d-flex justify-content-center"
-        >
-          <img
-            class="object-fit-contain img-fluid rounded-circle"
-            [src]="user.profileImageUrl"
-          />
-        </div>
-        <div
-          class="d-flex justify-content-around col-lg-12 col-md-3 col-12 mt-2"
-        >
-          <i
-            class="bi bi-camera-fill"
-            style="color: #6d2932; cursor: pointer"
-            (click)="editImage = true"
-          ></i>
-          <i
-            class="bi bi-trash3-fill"
-            style="color: gray; cursor: pointer"
-            (click)="ClearImage()"
-          ></i>
-        </div>
-        <div *ngIf="editImage">
-          <form [formGroup]="ImageForm">
-            <input
-              (change)="onFileSelected($event)"
-              formControlName="image"
-              placeholder="Enter Image URL"
-              type="file"
-              class="form-control mb-2"
-              id="inputGroupFile02"
-              accept="image/*"
+    <div class="col-12 d-flex justify-content-center mt-4 mb-4">
+      <div
+        class="col-10 col-lg-8 col-md-8 d-flex flex-column flex-lg-row flex-md-row justify-content-center align-items-center"
+      >
+        <!--Right Side-->
+        <div class="col-lg-4 col-md-5">
+          <div
+            class="rounded-4 imgContainer col-lg-12 col-md-10 col-12 d-flex justify-content-center"
+          >
+            <img
+              class="object-fit-contain img-fluid rounded-circle"
+              [src]="user.profileImageUrl"
             />
+          </div>
+          <div
+            class="d-flex justify-content-around col-lg-12 col-md-3 col-12 mt-2"
+          >
+            <i
+              class="bi bi-camera-fill"
+              style="color: #6d2932; cursor: pointer"
+              (click)="editImage = true"
+            ></i>
+            <i
+              class="bi bi-trash3-fill"
+              style="color: gray; cursor: pointer"
+              (click)="ClearImage()"
+            ></i>
+          </div>
+          <div *ngIf="editImage">
+            <form [formGroup]="ImageForm">
+              <input
+                (change)="onFileSelected($event)"
+                formControlName="image"
+                placeholder="Enter Image URL"
+                type="file"
+                class="form-control mb-2"
+                id="inputGroupFile02"
+                accept="image/*"
+              />
+
+              <button
+                [disabled]="editImage && ImageForm.controls['image'].invalid"
+                type="submit"
+                class="btn sign-btn me-3 ms-3"
+                (click)="SavingImage()"
+              >
+                Save Image
+              </button>
+              <button
+                class="btn sign-btn"
+                (click)="editImage = false; ImageForm.reset()"
+              >
+                Cancel
+              </button>
+            </form>
+          </div>
+        </div>
+        <!--left Side-->
+        <div class="ms-lg-5 ms-md-3 col-lg-6 col-10 col-md-7">
+          <p class="UserName" *ngIf="!editName">
+            {{ user.userName }}
+            <a (click)="editName = true" style="cursor: pointer"
+              ><i class="bi bi-pencil-square fs-5"></i
+            ></a>
+          </p>
+
+          <form [formGroup]="EditForm" (ngSubmit)="Edit()" class="mb-3">
+            <!--Username-->
+            <div class="mb-3 col-12" *ngIf="editName">
+              <label for="exampleInputEmail1" class="form-label fs-4"
+                >Username</label
+              >
+              <input
+                formControlName="username"
+                type="text"
+                placeholder="Enter new username"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+              <div
+                *ngIf="
+                  EditForm.get('username')?.touched &&
+                  EditForm.get('username')?.invalid
+                "
+              >
+                <small
+                  *ngIf="EditForm.get('email')?.errors?.['required']"
+                  style="color: red"
+                  >Username is required</small
+                >
+              </div>
+            </div>
 
             <button
-              [disabled]="editImage && ImageForm.controls['image'].invalid"
+              *ngIf="editName"
               type="submit"
-              class="btn sign-btn me-3 ms-3"
-              (click)="SavingImage()"
+              class="btn sign-btn"
+              [disabled]="editName && EditForm.controls['username'].invalid"
             >
-              Save Image
+              Save Changes
             </button>
             <button
-              class="btn sign-btn"
-              (click)="editImage = false; ImageForm.reset()"
+              *ngIf="editName"
+              class="btn sign-btn ms-2 fs-6 col-3"
+              (click)="cancelUsername()"
             >
               Cancel
             </button>
           </form>
         </div>
       </div>
-      <!--left Side-->
-      <div class="ms-lg-5 ms-md-3 col-lg-6 col-10 col-md-7">
-        <p class="UserName" *ngIf="!editName">
-          {{ user.userName }}
-          <a (click)="editName = true" style="cursor: pointer"
-            ><i class="bi bi-pencil-square fs-5"></i
-          ></a>
-        </p>
-
-        <form [formGroup]="EditForm" (ngSubmit)="Edit()" class="mb-3">
-          <!--Username-->
-          <div class="mb-3 col-12" *ngIf="editName">
-            <label for="exampleInputEmail1" class="form-label fs-4"
-              >Username</label
-            >
-            <input
-              formControlName="username"
-              type="text"
-              placeholder="Enter new username"
-              class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
-            />
-            <div
-              *ngIf="
-                EditForm.get('username')?.touched &&
-                EditForm.get('username')?.invalid
-              "
-            >
-              <small
-                *ngIf="EditForm.get('email')?.errors?.['required']"
-                style="color: red"
-                >Username is required</small
-              >
-            </div>
-          </div>
-
-          <button
-            *ngIf="editName"
-            type="submit"
-            class="btn sign-btn"
-            [disabled]="editName && EditForm.controls['username'].invalid"
-          >
-            Save Changes
-          </button>
-          <button
-            *ngIf="editName"
-            class="btn sign-btn ms-2 fs-6 col-3"
-            (click)="cancelUsername()"
-          >
-            Cancel
-          </button>
-        </form>
-      </div>
     </div>
+    <button
+      class="btn sign-btn col-5 fs-5 col-lg-3 col-md-4"
+      (click)="goBack()"
+      *ngIf="!loading"
+    >
+      Go Back
+    </button>
+    <span *ngIf="loading">Loading...</span>
   </div>
-  <button
-    class="btn sign-btn col-5 fs-5 col-lg-3 col-md-4"
-    (click)="goBack()"
-    *ngIf="!loading"
-  >
-    Go Back
-  </button>
-  <span *ngIf="loading">Loading...</span>
 </div>
 <app-footer *ngIf="role != 'MANAGER'"></app-footer>

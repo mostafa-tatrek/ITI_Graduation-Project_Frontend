@@ -1,8 +1,11 @@
 .nav {
   background-color: #e8d8c4;
   height: 18vh;
-  position: relative; /* 👈 لازم */
-  z-index: 10000; /* 👈 أعلى من أي card */
+  position: fixed; /* ✅ صح */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
 }
 .logo {
   height: 15vh;

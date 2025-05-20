@@ -3,6 +3,9 @@ h1 {
   font-weight: 600;
   font-family: "Dancing Script", cursive;
 }
+.main {
+  margin-top: 18vh;
+}
 .c {
   height: 100vh;
 }

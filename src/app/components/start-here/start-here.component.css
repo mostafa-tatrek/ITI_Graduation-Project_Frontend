@@ -6,6 +6,9 @@
   margin: 0 auto;
   object-fit: cover;
 }
+.main {
+  margin-top: 18vh;
+}
 
 .text h1 {
   color: #561c24;

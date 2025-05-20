@@ -8,6 +8,9 @@ h2 {
   font-weight: 800;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+.main {
+  margin-top: 18vh;
+}
 .mariam {
   min-height: 60vh !important;
 }
