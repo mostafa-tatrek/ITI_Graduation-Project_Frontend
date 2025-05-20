@@ -1,4 +1,7 @@
-<nav class="navbar navbar-expand-lg nav col-12 p-0 bo z-1">
+<nav
+  class="navbar navbar-expand-lg nav col-12 p-0 bo z-1"
+  [class.show]="menuOpen"
+>
   <div
     class="container-fluid d-flex justify-content-lg-around align-items-center justify-content-around ms-0 me-0"
   >
@@ -10,6 +13,7 @@
     </div>
     <!-- Toggler -->
     <button
+      (click)="toggleMenu()"
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"

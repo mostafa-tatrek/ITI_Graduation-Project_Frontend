@@ -15,6 +15,11 @@ import { AuthService } from '../../services/auth.service';
 })
 export class HeaderComponent implements OnInit {
   role = '';
+  menuOpen = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
   @ViewChild('navToggeler') btn!: ElementRef;
   isloged: boolean = false;
   constructor(private auth: AuthService, private _router: Router) {}
