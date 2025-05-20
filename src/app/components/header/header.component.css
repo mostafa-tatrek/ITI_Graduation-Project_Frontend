@@ -26,6 +26,7 @@
     background-color: #e8d8c4;
     position: fixed;
     z-index: 2000;
+    top: 20vh;
   }
   .navbar-nav {
     width: 100%;
