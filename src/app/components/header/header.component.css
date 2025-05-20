@@ -34,10 +34,6 @@
     padding: 1rem 2rem;
   }
 
-  .navbar-collapse {
-    display: block !important; /* عشان ما تختفيش لما تتفتح */
-  }
-
   .navbar-nav {
     display: flex;
     flex-direction: column;
