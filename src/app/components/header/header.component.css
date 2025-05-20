@@ -1,8 +1,6 @@
 .nav {
   background-color: #e8d8c4;
   height: 18vh;
-  position: relative; /* عشان يبقى فوق العناصر */
-  z-index: 1100; /* أعلى من معظم العناصر */
 }
 .logo {
   height: 15vh;
