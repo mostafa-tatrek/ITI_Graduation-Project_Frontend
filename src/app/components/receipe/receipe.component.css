@@ -195,13 +195,15 @@ li {
     font-size: 15px;
   }
   .custom-ng-select ::ng-deep .ng-select-container {
-    border-radius: 0.375rem; /* نفس bootstrap rounded */
-    height: 6vh; /* زي select العادية */
-    padding: 0.2rem 0.8rem;
+    display: flex;
+    align-items: center; /* يركّز المحتوى عمودياً في النص */
+    height: 6vh; /* ارتفاع الحاوية */
+    padding: 0px 1vw;
     font-size: 1rem;
-
+    border-radius: 0.375rem;
     box-shadow: none;
   }
+
   .catTitle {
     color: #6d2932;
     font-size: 18px !important;
@@ -229,7 +231,7 @@ li {
   }
   .search {
     height: 6vh;
-    margin-bottom: -6vh;
+    margin-bottom: 6.5vh;
     background-color: #f1eeeb;
   }
   input::placeholder {
