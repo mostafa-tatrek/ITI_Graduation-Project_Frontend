@@ -79,7 +79,6 @@ i {
 
   box-shadow: none;
 }
-
 ::ng-deep
   .ng-select
   .ng-select-container
@@ -278,20 +277,11 @@ label {
   ::ng-deep .ng-select .ng-select-container .ng-value {
     padding: 0.8vh 4.3vw;
   }
-  ::ng-deep .custom-ng-select .ng-select-container {
-    display: flex;
-    align-items: center; /* توسيط عمودي */
-    padding: 0 4vw; /* padding أفقي فقط */
-    height: 100%; /* تأكد من ملء الحاوية */
-  }
-
   ::ng-deep .custom-ng-select .ng-select-container .ng-placeholder {
-    color: #4d4c4c;
+    color: #4d4c4c; /* اختر اللون الذي تريده */
     font-size: 12px;
-    line-height: 1;
-    margin: 0; /* شيل أي margin داخلي */
+    padding: 30px 4vw;
   }
-
   .form-control::placeholder,
   .x::placeholder {
     font-size: 14px;
