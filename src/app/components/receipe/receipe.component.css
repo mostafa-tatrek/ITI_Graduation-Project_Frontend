@@ -192,13 +192,13 @@ li {
   ::ng-deep .custom-ng-select .ng-select-container .ng-placeholder {
     color: #4d4c4c; /* اختر اللون الذي تريده */
     font-size: 15px;
+    padding-top: 0.5vh;
   }
   .custom-ng-select ::ng-deep .ng-select-container {
     border-radius: 0.375rem; /* نفس bootstrap rounded */
     height: 6vh; /* زي select العادية */
     padding: 0.2rem 0.8rem;
     font-size: 1rem;
-
     box-shadow: none;
   }
   .catTitle {
