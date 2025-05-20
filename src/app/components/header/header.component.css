@@ -51,3 +51,12 @@
 .bo {
   border-bottom: #561c24 1px solid;
 }
+.collapse.show {
+  position: absolute;
+  top: 18vh; /* تحت الـ navbar */
+  left: 0;
+  width: 100%;
+  background-color: #e8d8c4;
+  z-index: 1099;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
