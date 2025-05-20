@@ -2,8 +2,8 @@
   height: 13vh;
 }
 
-::ng-deep .custom-ng-select .ng-select-container {
-  height: 4vh !important;
+.custom-ng-select ::ng-deep .ng-select-container {
+  height: 4vh !important; /* ارتفاع مناسب */
   display: flex;
   align-items: center;
   padding: 0px 10px;
@@ -275,7 +275,7 @@ label {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
   ::ng-deep .ng-select .ng-select-container .ng-value {
-    padding: 0vh 4.3vw;
+    padding: 0.8vh 4.3vw;
   }
   ::ng-deep .custom-ng-select .ng-select-container .ng-placeholder {
     color: #4d4c4c; /* اختر اللون الذي تريده */
