@@ -22,13 +22,13 @@
   font-family: "Dancing Script", cursive;
 }
 @media (max-width: 991px) {
-  .nav {
+  .nav.show {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
   }
-  .navbar-collapse.full-width-navbar.show {
+  .navbar-collapse.full-width-navbar {
     position: fixed !important;
     top: 18vh !important; /* ارتفاع الهيدر */
     left: 0 !important;
