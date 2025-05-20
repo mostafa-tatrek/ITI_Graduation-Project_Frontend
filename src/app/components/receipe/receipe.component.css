@@ -86,11 +86,13 @@ li {
 }
 
 .custom-ng-select ::ng-deep .ng-select-container {
+  display: flex;
+
+  align-items: center;
   border-radius: 0.375rem; /* نفس bootstrap rounded */
   height: 10vh; /* زي select العادية */
-  padding: 1rem 0px;
-  font-size: 1rem;
 
+  font-size: 1rem;
   box-shadow: none;
 }
 
@@ -193,6 +195,7 @@ li {
   ::ng-deep .ng-select .ng-select-container .ng-value {
     padding: 0.8vh 4.3vw;
   }
+
   ::ng-deep .custom-ng-select .ng-select-container .ng-placeholder {
     color: #4d4c4c; /* اختر اللون الذي تريده */
     font-size: 16px;
