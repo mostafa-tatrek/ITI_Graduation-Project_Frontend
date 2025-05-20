@@ -7,7 +7,7 @@
   color: white;
 }
 .z {
-  margin: 100px 0px !important;
+  margin: auto 0px !important;
 }
 .c {
   background-color: white !important;
@@ -52,7 +52,7 @@ h1 {
 /* ===== FORM ELEMENTS ===== */
 form {
   width: 100%;
-  max-width: 350px;
+
   margin: 0 auto;
   text-align: left;
 }
@@ -72,7 +72,6 @@ label {
 }
 
 .form-control {
-  width: 100%;
   padding: 0.75rem;
   border: 1px solid #ced4da;
   border-radius: 0.375rem;
