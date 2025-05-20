@@ -24,7 +24,7 @@
   background-color: rgba(238, 233, 233, 0.3);
   opacity: 0;
   transition: opacity 0.3s ease;
-  z-index: 2;
+  z-index: 0;
 }
 
 .category-label::after {
