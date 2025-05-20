@@ -1,40 +1,37 @@
 .nav {
   background-color: #e8d8c4;
   height: 18vh;
+  position: relative; /* عشان يبقى فوق العناصر */
+  z-index: 1100; /* أعلى من معظم العناصر */
 }
-
 .logo {
   height: 15vh;
 }
-
 .color {
   color: #561c24;
 }
-
 .navItem {
   font-weight: 800;
   color: #6d2932;
 }
-
 ._bo :hover {
   font-weight: 800;
   color: #561c24;
 }
-
 .profile {
   font-family: "Dancing Script", cursive;
 }
-
 @media (max-width: 991px) {
   .full-width-navbar {
     width: 100% !important;
     padding: 0.5rem 2rem;
     background-color: #e8d8c4;
   }
-
   .navbar-nav {
     width: 100%;
-    display: block; /* خلي العرض كامل بس مش flex عشان العناصر مش تتوسط */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .nav-item {
@@ -45,19 +42,12 @@
 
   .navbar-toggler {
     margin-right: 10px;
-    border: none;
-    outline: none;
-    z-index: 1200; /* عشان فوق */
-    background-color: transparent;
-    padding: 0.25rem 0.75rem;
   }
 }
-
 .container-fluid {
   margin: 0px !important;
   padding: 0px !important;
 }
-
 .bo {
   border-bottom: #561c24 1px solid;
 }
