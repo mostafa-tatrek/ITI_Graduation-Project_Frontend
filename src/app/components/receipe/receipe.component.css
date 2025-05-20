@@ -126,6 +126,9 @@ li {
   margin: 0 !important;
   height: 100%;
   font-size: 16px; /* اختياري */
+  line-height: 1; /* Add this to reduce extra height */
+  vertical-align: middle; /* Make sure cursor is aligned */
+  display: inline-block; /* Fix alignment */
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   ::ng-deep .custom-ng-select .ng-select-container .ng-placeholder {
