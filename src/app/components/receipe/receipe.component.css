@@ -231,7 +231,7 @@ li {
   }
   .search {
     height: 6vh;
-    margin-bottom: -20vh;
+    margin-bottom: 40vh;
     background-color: #f1eeeb;
   }
   input::placeholder {
