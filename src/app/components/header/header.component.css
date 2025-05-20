@@ -24,19 +24,24 @@
 @media (max-width: 991px) {
   .full-width-navbar {
     position: fixed !important;
-    top: 18vh;
+    top: 18vh; /* نفس ارتفاع الهيدر */
     left: 0;
     width: 100vw;
     background-color: #e8d8c4;
-    z-index: 10000 !important; /* تمام كده */
+    z-index: 10000 !important;
     overflow-y: auto;
     padding: 1rem 2rem;
   }
+
+  .navbar-collapse {
+    display: block !important; /* عشان ما تختفيش لما تتفتح */
+  }
+
   .navbar-nav {
-    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    width: 100%;
   }
 
   .nav-item {
@@ -44,11 +49,8 @@
     margin: 0.5rem 0;
     border-bottom: #561c24 1px solid;
   }
-
-  .navbar-toggler {
-    margin-right: 10px;
-  }
 }
+
 .container-fluid {
   margin: 0px !important;
   padding: 0px !important;
