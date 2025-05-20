@@ -75,7 +75,7 @@ i {
 .custom-ng-select ::ng-deep .ng-select-container {
   border-radius: 0.375rem; /* نفس bootstrap rounded */
   height: 2vh; /* زي select العادية */
-  padding: 0.5rem 5px;
+  padding: 0rem 5px;
   font-size: 1rem;
   box-shadow: none;
 }
