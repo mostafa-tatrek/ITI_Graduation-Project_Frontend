@@ -24,18 +24,14 @@
     width: 100% !important;
     padding: 0.5rem 2rem;
     background-color: #e8d8c4;
-    position: fixed; /* خلي القائمة ثابتة */
-
-    left: 0;
-    right: 0;
-    z-index: 1100; /* فوق المحتوى */
+    position: fixed;
+    z-index: 2000;
   }
-
   .navbar-nav {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* مش في النص */
+    align-items: center;
   }
 
   .nav-item {
@@ -46,10 +42,8 @@
 
   .navbar-toggler {
     margin-right: 10px;
-    z-index: 1200; /* خلي التوجلر فوق كل حاجة */
   }
 }
-
 .container-fluid {
   margin: 0px !important;
   padding: 0px !important;
