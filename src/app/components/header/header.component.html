@@ -33,7 +33,7 @@
           <ul class="navbar-nav align-items-center">
             <li class="nav-item _bo">
               <a
-                class="nav-link navItem"
+                class="nav-link navItem col-12"
                 routerLink="/home"
                 data-bs-toggle="collapse"
                 data-bs-target=".navbar-collapse.show"
@@ -42,7 +42,7 @@
             </li>
             <li class="nav-item _bo">
               <a
-                class="nav-link navItem"
+                class="nav-link navItem col-12"
                 routerLink="/about"
                 data-bs-toggle="collapse"
                 data-bs-target=".navbar-collapse.show"
@@ -51,7 +51,7 @@
             </li>
             <li class="nav-item _bo">
               <a
-                class="nav-link navItem"
+                class="nav-link navItem col-12"
                 routerLink="/recipe"
                 data-bs-toggle="collapse"
                 data-bs-target=".navbar-collapse.show"
@@ -60,7 +60,7 @@
             </li>
             <li class="nav-item _bo">
               <a
-                class="nav-link navItem"
+                class="nav-link navItem col-12"
                 routerLink="/startHere"
                 data-bs-toggle="collapse"
                 data-bs-target=".navbar-collapse.show"
@@ -70,7 +70,7 @@
             <li class="nav-item _bo" *ngIf="isloged == true">
               <a
                 style="cursor: pointer"
-                class="nav-link navItem profile"
+                class="nav-link navItem profile col-12"
                 (click)="GoToProfile()"
                 data-bs-toggle="collapse"
                 data-bs-target=".navbar-collapse.show"
@@ -81,7 +81,7 @@
             <li class="nav-item _bo">
               <a
                 *ngIf="isloged == false"
-                class="nav-link navItem"
+                class="nav-link navItem col-12"
                 routerLink="/Login"
                 data-bs-toggle="collapse"
                 data-bs-target=".navbar-collapse.show"
@@ -91,7 +91,7 @@
                 routerLink="home"
                 *ngIf="isloged == true"
                 style="cursor: pointer"
-                class="nav-link navItem"
+                class="nav-link navItem col-12"
                 (click)="logout()"
                 data-bs-toggle="collapse"
                 data-bs-target=".navbar-collapse.show"
