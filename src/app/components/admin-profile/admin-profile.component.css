@@ -335,7 +335,7 @@ label {
     .ng-input
     > input {
     height: 100%; /* يخلي الإدخال يملأ ارتفاع الحاوية */
-    padding: 0 10px !important;
+    padding: 0px !important;
     box-sizing: border-box;
   }
 }
