@@ -322,7 +322,7 @@ label {
     display: flex;
     align-items: center; /* يركّز المحتوى عمودياً في النص */
     height: 2vh; /* ارتفاع الحاوية */
-    padding: 0px 4vw;
+    padding: 0px 1vw;
     font-size: 1rem;
     border-radius: 0.375rem;
     box-shadow: none;
