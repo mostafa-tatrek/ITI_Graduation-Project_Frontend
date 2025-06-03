@@ -43,6 +43,6 @@ export class HeaderComponent implements OnInit {
     this.auth.loggedUserId = null;
   }
   GoToProfile() {
-    this._router.navigateByUrl(`UserProfile/${this.auth.loggedUserId}`);
+    this._router.navigateByUrl(`UserProfile/${this.userid}`);
   }
 }
