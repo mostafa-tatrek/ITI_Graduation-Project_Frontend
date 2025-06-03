@@ -57,21 +57,21 @@ export class OneRecipeShowComponent implements OnInit {
   toggleBookmark() {
     this.isSaved = !this.isSaved;
 
-    if (this._auth.loggedUserId && this.isSaved == true) {
+    if (this.UserId && this.isSaved == true) {
       this._topRatedServices
         .AddFavorite({
           recipeID: this.recipe.recipeID,
-          userID: this._auth.loggedUserId,
+          userID: this.UserId,
         })
         .subscribe({
           next: (res) => console.log(res),
           error: (err) => console.log(err),
         });
-    } else if (this._auth.loggedUserId && this.isSaved == false) {
+    } else if (this.UserId && this.isSaved == false) {
       this._topRatedServices
         .deleteFavorite({
           recipeID: this.recipe.recipeID,
-          userID: this._auth.loggedUserId,
+          userID: this.UserId,
         })
         .subscribe({
           next: (res) => console.log(res),
