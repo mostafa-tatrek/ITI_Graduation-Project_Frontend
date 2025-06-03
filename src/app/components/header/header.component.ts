@@ -16,7 +16,7 @@ import { AuthService } from '../../services/auth.service';
 export class HeaderComponent implements OnInit {
   role = '';
   menuOpen = false;
-  userid = '';
+  userid: number = 0;
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -26,9 +26,9 @@ export class HeaderComponent implements OnInit {
   constructor(private auth: AuthService, private _router: Router) {}
   ngOnInit() {
     this.role = localStorage.getItem('role') ?? '';
-    this.userid = localStorage.getItem('userId') ?? '';
+    this.userid = Number(localStorage.getItem('userId'));
 
-    if (this.userid != '') {
+    if (this.userid != 0) {
       this.isloged = true;
     }
   }
