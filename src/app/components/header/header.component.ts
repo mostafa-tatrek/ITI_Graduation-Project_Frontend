@@ -16,6 +16,7 @@ import { AuthService } from '../../services/auth.service';
 export class HeaderComponent implements OnInit {
   role = '';
   menuOpen = false;
+  userid = '';
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
@@ -25,22 +26,22 @@ export class HeaderComponent implements OnInit {
   constructor(private auth: AuthService, private _router: Router) {}
   ngOnInit() {
     this.role = localStorage.getItem('role') ?? '';
+    this.userid = localStorage.getItem('userId') ?? '';
+
     this.auth.logged$.subscribe((value) => {
       this.isloged = value;
     });
-    console.log('Is user logged in:', this.auth.loggedUser);
   }
   logout() {
     this.isloged = false;
     localStorage.removeItem('token');
     localStorage.removeItem('role');
     localStorage.removeItem('userId');
-
     this.auth.setLoggedIn(false);
     this.auth.loggedUser = null;
     this.auth.loggedUserId = null;
   }
   GoToProfile() {
-    this._router.navigateByUrl(`UserProfile/${this.auth.loggedUserId}`);
+    this._router.navigateByUrl(`UserProfile/${this.userid}`);
   }
 }
