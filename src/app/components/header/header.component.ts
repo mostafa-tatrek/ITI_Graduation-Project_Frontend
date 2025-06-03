@@ -27,7 +27,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.role = localStorage.getItem('role') ?? '';
     this.userid = localStorage.getItem('userId') ?? '';
-
+    if (this.userid != '') {
+      this.isloged = true;
+    }
     this.auth.logged$.subscribe((value) => {
       this.isloged = value;
     });
