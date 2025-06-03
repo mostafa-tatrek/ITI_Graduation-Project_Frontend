@@ -5,8 +5,8 @@ import { firstValueFrom } from 'rxjs';
 export const loginGuardGuard: CanActivateFn = async (route, state) => {
   const _auth = inject(AuthService);
   const _router = inject(Router);
-  const isLogged = Number(localStorage.getItem('userId'));
-  if (isLogged == 0) {
+  const isLogged = await firstValueFrom(_auth.logged$);
+  if (isLogged) {
     _router.navigateByUrl('home');
     return false;
   }
